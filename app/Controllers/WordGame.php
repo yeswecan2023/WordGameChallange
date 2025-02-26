@@ -14,11 +14,9 @@ class WordGame extends Controller
 
     public function startGame() {
         $letters = 'dgeftoikbvxuaa';
-        $letterCounts = array_count_values(str_split($letters)); // Count letters
         session()->set('available_letters', $letters);
         session()->set('score', 0);
         session()->set('used_words', []);
-        session()->set('letterCounts', $letterCounts);
         return view('play_game', ['letters' => $letters]);
     }
 
@@ -56,6 +54,24 @@ class WordGame extends Controller
         // Update available letters
         session()->set('available_letters', $this->removeUsedLetters(strtolower($word), $letters));
     
+        // **Game End Condition:** No more available letters
+        if (empty(session()->get('available_letters'))) {
+            $gameModel = new GameModel();
+        
+            // Generate a unique player name (e.g., Player_1234)
+            $playerName = 'Player_' . rand(1000, 9999); 
+            session()->set('player_name', $playerName);
+        
+            // Save score to the database
+            $gameModel->saveScore($playerName, session()->get('score'));
+        
+            // Clear session
+            session()->remove(['available_letters', 'score', 'used_words']);
+        
+            // Redirect to start a new game
+            return redirect()->to('/wordgame');
+        }
+
         //return redirect()->back()->with('message', "Word accepted! Score: " . session()->get('score'));
         return view('play_game', [
             'message' => "Word accepted! Score: " . $score,
@@ -74,7 +90,7 @@ class WordGame extends Controller
         }
     
         $words = file($filePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-        
+        // print_r($word); exit;
         return in_array($word, $words);
     }
     
