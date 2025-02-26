@@ -1,0 +1,1 @@
+{"version":1,"defects":{"Tests\\App\\Controllers\\WordGameTest::testSubmitValidWord":8,"Tests\\App\\Controllers\\WordGameTest::testSubmitInvalidWord":8},"times":{"Tests\\App\\Controllers\\WordGameTest::testStartGame":0.011,"Tests\\App\\Controllers\\WordGameTest::testSubmitValidWord":0.015,"Tests\\App\\Controllers\\WordGameTest::testSubmitInvalidWord":0.004}}

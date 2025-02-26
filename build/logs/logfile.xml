@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\App\Controllers\WordGameTest" file="C:\xampp\htdocs\WordGameChallange\tests\app\Controllers\WordGameTest.php" tests="2" assertions="0" errors="2" failures="0" skipped="0" time="0.000000">
+    <testcase name="testSubmitValidWord" file="C:\xampp\htdocs\WordGameChallange\tests\app\Controllers\WordGameTest.php" line="29" class="Tests\App\Controllers\WordGameTest" classname="Tests.App.Controllers.WordGameTest" assertions="0" time="0.000000">
+      <error type="Error">Tests\App\Controllers\WordGameTest::testSubmitValidWord&#13;
+Error: Call to a member function debug() on null
+&#13;
+C:\xampp\htdocs\WordGameChallange\system\Session\Session.php:261
+C:\xampp\htdocs\WordGameChallange\tests\app\Controllers\WordGameTest.php:20</error>
+    </testcase>
+    <testcase name="testSubmitInvalidWord" file="C:\xampp\htdocs\WordGameChallange\tests\app\Controllers\WordGameTest.php" line="43" class="Tests\App\Controllers\WordGameTest" classname="Tests.App.Controllers.WordGameTest" assertions="0" time="0.000000">
+      <error type="Error">Tests\App\Controllers\WordGameTest::testSubmitInvalidWord&#13;
+Error: Call to a member function debug() on null
+&#13;
+C:\xampp\htdocs\WordGameChallange\system\Session\Session.php:261
+C:\xampp\htdocs\WordGameChallange\tests\app\Controllers\WordGameTest.php:20</error>
+    </testcase>
+  </testsuite>
+</testsuites>
