@@ -34,11 +34,15 @@ class WordGame extends Controller
     
         // Validate against words.txt
         if (!$this->isValidWordFromFile($word)) {
-            return redirect()->back()->with('message', 'Invalid English word!');
+            return view('play_game', [
+                'message' => "Invalid English word!",
+            ]);
         }
     
         if (!$this->canConstructWord(strtolower($word), $letters)) {
-            return redirect()->back()->with('message', 'Invalid word using given letters!');
+            return view('play_game', [
+                'message' => 'Invalid word using given letters!',
+            ]);
         }
     
         // Update used words
@@ -52,7 +56,10 @@ class WordGame extends Controller
         // Update available letters
         session()->set('available_letters', $this->removeUsedLetters(strtolower($word), $letters));
     
-        return redirect()->back()->with('message', "Word accepted! Score: " . session()->get('score'));
+        //return redirect()->back()->with('message', "Word accepted! Score: " . session()->get('score'));
+        return view('play_game', [
+            'message' => "Word accepted! Score: " . $score,
+        ]);
     }
     
     
