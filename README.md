@@ -19,11 +19,7 @@
    ```
 
 3. **Configure Environment**:
-   - Copy `.env.example` to `.env` if not already present:
-     ```sh
-     cp env .env
-     ```
-   - Open `.env` and configure the database settings:
+   - Open `env` and configure the database settings:
      ```ini
      database.default.hostname = localhost
      database.default.database = your_database_name
